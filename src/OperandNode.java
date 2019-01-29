@@ -6,6 +6,7 @@ public class OperandNode extends SyntaxNode implements Visitable{
         position = -1; // bedeutet: noch nicht initialisiert
         this.symbol = symbol;
     }
+
     @Override
     public void accept(Visitor visitor)
     {
