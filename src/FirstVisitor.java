@@ -66,9 +66,16 @@ public class FirstVisitor implements Visitor
                 node.firstpos.addAll(subNode.firstpos);
                 node.lastpos.addAll(subNode.lastpos);
                 break;
+            case "?":
+                //TODO
+                break;
+            case "+":
+                //TODO
+                break;
             default:
                 System.out.println("Sth unexpected Happened: " + node.getClass().toGenericString() + " " + node.operator);
                 break;
         }
+
     }
 }
