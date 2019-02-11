@@ -37,7 +37,7 @@ public class FirstVisitor implements Visitor
 
                 break;
 
-            case "∘":
+            case "°":
                 node.nullable = leftNode.nullable && rightNode.nullable;
 
                 node.firstpos.addAll(leftNode.firstpos);
