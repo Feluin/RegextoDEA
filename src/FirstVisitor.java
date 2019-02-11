@@ -3,7 +3,6 @@ public class FirstVisitor implements Visitor
     @Override
     public void visit(OperandNode node)
     {
-        //TODO:hier das epsilon einfügen
         if ("ε".equals(node.symbol))
         {
             node.nullable = true;

@@ -1,9 +1,9 @@
-import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.*;
+
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 
-import java.util.HashSet;
 import java.util.Set;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -70,66 +70,67 @@ class FirstVisitorTest
         DepthFirstIterator.traverse(rootNode, new FirstVisitor());
     }
 
-
     void positionTest()
     {
         //Für Raphael //TODO
-        Assertions.assertEquals(1, k1.position);
-        Assertions.assertEquals( 2,k2.position);
-        Assertions.assertEquals( 3,k5.position);
-        Assertions.assertEquals(4,k7.position);
-        Assertions.assertEquals( 5,k9.position);
-        Assertions.assertEquals(6,k11.position);
+        assertEquals(1, k1.position);
+        assertEquals(2, k2.position);
+        assertEquals(3, k5.position);
+        assertEquals(4, k7.position);
+        assertEquals(5, k9.position);
+        assertEquals(6, k11.position);
     }
 
     @Test
     void nullableTest()
     {
-        Assertions.assertEquals( false,k1.nullable);
-        Assertions.assertEquals( false,k2.nullable);
-        Assertions.assertEquals( false,k3.nullable);
-        Assertions.assertEquals( true,k4.nullable);
-        Assertions.assertEquals( false,k5.nullable);
-        Assertions.assertEquals( false,k6.nullable);
-        Assertions.assertEquals( false,k7.nullable);
-        Assertions.assertEquals( false,k8.nullable);
-        Assertions.assertEquals( false,k9.nullable);
-        Assertions.assertEquals( false,k10.nullable);
-        Assertions.assertEquals( false,k11.nullable);
-        Assertions.assertEquals( false,rootNode.nullable);
+        assertEquals(false, k1.nullable);
+        assertEquals(false, k2.nullable);
+        assertEquals(false, k3.nullable);
+        assertEquals(true, k4.nullable);
+        assertEquals(false, k5.nullable);
+        assertEquals(false, k6.nullable);
+        assertEquals(false, k7.nullable);
+        assertEquals(false, k8.nullable);
+        assertEquals(false, k9.nullable);
+        assertEquals(false, k10.nullable);
+        assertEquals(false, k11.nullable);
+        assertEquals(false, rootNode.nullable);
 
     }
+
     @Test
     void firstPosTest()
     {
-        Assertions.assertEquals(Set.of(1),k1.firstpos);
-        Assertions.assertEquals(Set.of(2),k2.firstpos);
-        Assertions.assertEquals(Set.of(1,2),k3.firstpos);
-        Assertions.assertEquals(Set.of(1,2),k4.firstpos);
-        Assertions.assertEquals(Set.of(3),k5.firstpos);
-        Assertions.assertEquals(Set.of(1,2,3),k6.firstpos);
-        Assertions.assertEquals(Set.of(4),k7.firstpos);
-        Assertions.assertEquals(Set.of(1,2,3),k8.firstpos);
-        Assertions.assertEquals(Set.of(5),k9.firstpos);
-        Assertions.assertEquals(Set.of(1,2,3),k10.firstpos);
-        Assertions.assertEquals(Set.of(6),k11.firstpos);
-        Assertions.assertEquals(Set.of(1,2,3),rootNode.firstpos);
+        assertEquals(Set.of(1), k1.firstpos);
+        assertEquals(Set.of(2), k2.firstpos);
+        assertEquals(Set.of(1, 2), k3.firstpos);
+        assertEquals(Set.of(1, 2), k4.firstpos);
+        assertEquals(Set.of(3), k5.firstpos);
+        assertEquals(Set.of(1, 2, 3), k6.firstpos);
+        assertEquals(Set.of(4), k7.firstpos);
+        assertEquals(Set.of(1, 2, 3), k8.firstpos);
+        assertEquals(Set.of(5), k9.firstpos);
+        assertEquals(Set.of(1, 2, 3), k10.firstpos);
+        assertEquals(Set.of(6), k11.firstpos);
+        assertEquals(Set.of(1, 2, 3), rootNode.firstpos);
     }
+
     @Test
     void lastPosTest()
     {
-        Assertions.assertEquals(Set.of(1),k1.lastpos);
-        Assertions.assertEquals(Set.of(2),k2.lastpos);
-        Assertions.assertEquals(Set.of(1,2),k3.lastpos);
-        Assertions.assertEquals(Set.of(1,2),k4.lastpos);
-        Assertions.assertEquals(Set.of(3),k5.lastpos);
-        Assertions.assertEquals(Set.of(3),k6.lastpos);
-        Assertions.assertEquals(Set.of(4),k7.lastpos);
-        Assertions.assertEquals(Set.of(4),k8.lastpos);
-        Assertions.assertEquals(Set.of(5),k9.lastpos);
-        Assertions.assertEquals(Set.of(5),k10.lastpos);
-        Assertions.assertEquals(Set.of(6),k11.lastpos);
-        Assertions.assertEquals(Set.of(6),rootNode.lastpos);
+        assertEquals(Set.of(1), k1.lastpos);
+        assertEquals(Set.of(2), k2.lastpos);
+        assertEquals(Set.of(1, 2), k3.lastpos);
+        assertEquals(Set.of(1, 2), k4.lastpos);
+        assertEquals(Set.of(3), k5.lastpos);
+        assertEquals(Set.of(3), k6.lastpos);
+        assertEquals(Set.of(4), k7.lastpos);
+        assertEquals(Set.of(4), k8.lastpos);
+        assertEquals(Set.of(5), k9.lastpos);
+        assertEquals(Set.of(5), k10.lastpos);
+        assertEquals(Set.of(6), k11.lastpos);
+        assertEquals(Set.of(6), rootNode.lastpos);
 
     }
 
