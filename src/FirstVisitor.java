@@ -66,7 +66,6 @@ public class FirstVisitor implements Visitor
         {
             case "*":
                 node.nullable = true;
-
                 node.firstpos.addAll(subNode.firstpos);
                 node.lastpos.addAll(subNode.lastpos);
                 break;
@@ -76,7 +75,7 @@ public class FirstVisitor implements Visitor
                 node.lastpos.addAll(subNode.lastpos);
                 break;
             case "+":
-                node.nullable = true;
+                node.nullable = false;
                 node.firstpos.addAll(subNode.firstpos);
                 node.lastpos.addAll(subNode.lastpos);
                 break;

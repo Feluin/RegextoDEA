@@ -1,5 +1,4 @@
-import org.jetbrains.annotations.Contract;
-import org.jetbrains.annotations.NotNull;
+
 
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -8,10 +7,11 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class TDP {
+public class TDP
+{
     private static String concat = "°";
-    private static String endSymbol ="#";
-    private static String or ="|";
+    private static String endSymbol = "#";
+    private static String or = "|";
     private static String kleen = "*";
     private static String pos = "+";
     private static String opt = "?";
@@ -20,7 +20,8 @@ public class TDP {
     private static List<String> multOps = Arrays.asList(kleen, pos, opt);
     private static List<String> alphaNums = getAlphaNums();
 
-    private static List<String> getAlphaNums() {
+    private static List<String> getAlphaNums()
+    {
         List<Character> ret = new LinkedList<>();
         IntStream.range(48, 58).mapToObj(i -> (char) i).forEach(ret::add);
         IntStream.range(65, 91).mapToObj(i -> (char) i).forEach(ret::add);
@@ -31,134 +32,167 @@ public class TDP {
     private int curIndex = 0;
     private String regEx;
 
-    public TDP(@NotNull String regEx, boolean hasEndSymbol) {
+    public TDP(String regEx,
+        boolean hasEndSymbol)
+    {
         this.regEx = String.copyValueOf(regEx.toCharArray());
-        if(!hasEndSymbol)
+        if (!hasEndSymbol)
+        {
             this.regEx = this.regEx + endSymbol;
+        }
     }
 
-    public TDP(String regEx) {
+    public TDP(String regEx)
+    {
         this(regEx, regEx.endsWith("#"));
     }
 
-    public Visitable getTreeFromRegex() {
+    public Visitable getTreeFromRegex()
+    {
         int regexLength = regEx.length();
-        if(regexLength < 1 || this.regEx.lastIndexOf(endSymbol) != regexLength -1) {
+        if (regexLength < 1 || this.regEx.lastIndexOf(endSymbol) != regexLength - 1)
+        {
             throw getIllArgException("Expression must end with " + getNameAndValue("endSymbol", endSymbol) + "(even is emtpy)");
-        } else if (regEx.equals(endSymbol)) {
+        } else if (regEx.equals(endSymbol))
+        {
             return new OperandNode(endSymbol);
-        } else if(getFirstFromRegex().equals(openBrack)) {
+        } else if (getFirstFromRegex().equals(openBrack))
+        {
             Visitable regExp = regExpWrapper();
             Visitable leaf = new OperandNode(endSymbol);
             Visitable ret = new BinOpNode(concat, regExp, leaf);
             removeFirstFromRegex();
-            if(this.regEx.length() > 0) {
+            if (this.regEx.length() > 0)
+            {
                 throw getIllArgException("Fail in compiler, regEx should have no more symbols");
             }
             return ret;
-        } else {
+        } else
+        {
             throw getIllArgException("Expression needs to start with " + getNameAndValue("opening brackets", openBrack));
         }
     }
 
-    private Visitable regExpWrapper() {
+    private Visitable regExpWrapper()
+    {
         removeFirstFromRegex();
         Visitable ret = regExp();
-        if(!getFirstFromRegex().equals(closeBrack)) {
+        if (!getFirstFromRegex().equals(closeBrack))
+        {
             throw getIllArgException("Expression must have " + getNameAndValue("closing brackets", closeBrack));
         }
         removeFirstFromRegex();
         return ret;
     }
 
-    @NotNull
-    @Contract(pure = true)
-    private String getNameAndValue(String name, String value) {
-        return name+ "('" + value + "')";
+
+    private String getNameAndValue(String name,
+        String value)
+    {
+        return name + "('" + value + "')";
     }
 
-    @NotNull
-    @Contract("_ -> new")
-    private IllegalArgumentException getIllArgException(String message) {
+
+    private IllegalArgumentException getIllArgException(String message)
+    {
         return new IllegalArgumentException(message + " " + getEndText());
     }
 
-    @NotNull
-    @Contract(pure = true)
-    private String getEndText() {
+
+    private String getEndText()
+    {
         return "At Index: " + curIndex;
     }
 
-    private Visitable regExp() {
+    private Visitable regExp()
+    {
         return re(term(null));
     }
 
-    private Visitable re(Visitable param) {
-        if(!getFirstFromRegex().equals(or)) {
+    private Visitable re(Visitable param)
+    {
+        if (!getFirstFromRegex().equals(or))
+        {
             return param;
-        } else {
+        } else
+        {
             removeFirstFromRegex();
             return re(new BinOpNode(or, param, term(null)));
         }
     }
 
-    private void removeFirstFromRegex() {
+    private void removeFirstFromRegex()
+    {
         this.regEx = this.regEx.substring(1);
         curIndex++;
     }
 
-    @NotNull
-    @Contract(pure = true)
-    private String getFirstFromRegex() {
+
+    private String getFirstFromRegex()
+    {
         return this.regEx.substring(0, 1);
     }
 
-    private Visitable term(Visitable param) {
+    private Visitable term(Visitable param)
+    {
         String firstFromRegex = getFirstFromRegex();
-        if(!isAlphaNum(firstFromRegex) && !firstFromRegex.startsWith(openBrack)) {
+        if (!isAlphaNum(firstFromRegex) && !firstFromRegex.startsWith(openBrack))
+        {
             return param;
-        } else {
+        } else
+        {
             Visitable termRekParam = factor();
-            if(param != null) {
+            if (param != null)
+            {
                 termRekParam = new BinOpNode(concat, param, termRekParam);
             }
             return term(termRekParam);
         }
     }
 
-    private Visitable factor() {
+    private Visitable factor()
+    {
         return hop(elem());
     }
 
-    private Visitable elem() {
-        if(getFirstFromRegex().equals(openBrack)) {
+    private Visitable elem()
+    {
+        if (getFirstFromRegex().equals(openBrack))
+        {
             return regExpWrapper();
-        }else
+        } else
+        {
             return alphaNum();
+        }
     }
 
-    @NotNull
-    @Contract(" -> new")
-    private Visitable alphaNum() {
+    private Visitable alphaNum()
+    {
         String startRegEx = getFirstFromRegex();
-        if(isAlphaNum(startRegEx)) {
+        if (isAlphaNum(startRegEx))
+        {
             removeFirstFromRegex();
             return new OperandNode(startRegEx);
-        } else {
+        } else
+        {
             throw getIllArgException("Alpha numeric symbol expected");
         }
 
     }
 
-    private boolean isAlphaNum(String startRegEx) {
+    private boolean isAlphaNum(String startRegEx)
+    {
         return alphaNums.stream().anyMatch(a -> a.equals(startRegEx));
     }
 
-    private Visitable hop(Visitable param) {
+    private Visitable hop(Visitable param)
+    {
         String firstRegEx = getFirstFromRegex();
-        if(this.regEx.length() <1 || multOps.stream().noneMatch(firstRegEx::equals)) {
+        if (this.regEx.length() < 1 || multOps.stream().noneMatch(firstRegEx::equals))
+        {
             return param;
-        } else {
+        } else
+        {
             removeFirstFromRegex();
             return new UnaryOpNode(firstRegEx, param);
         }
