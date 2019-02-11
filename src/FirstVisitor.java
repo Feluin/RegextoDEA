@@ -4,7 +4,7 @@ public class FirstVisitor implements Visitor
     public void visit(OperandNode node)
     {
         //TODO:hier das epsilon einfügen
-        if ("e".equals(node.symbol))
+        if ("ε".equals(node.symbol))
         {
             node.nullable = true;
 
@@ -43,9 +43,14 @@ public class FirstVisitor implements Visitor
 
                 node.firstpos.addAll(leftNode.firstpos);
                 if (leftNode.nullable)
+                {
                     node.firstpos.addAll(rightNode.firstpos);
+                }
 
-                if(rightNode.nullable)node.lastpos.addAll(leftNode.lastpos);
+                if (rightNode.nullable)
+                {
+                    node.lastpos.addAll(leftNode.lastpos);
+                }
                 node.lastpos.addAll(rightNode.lastpos);
 
                 break;
@@ -67,10 +72,14 @@ public class FirstVisitor implements Visitor
                 node.lastpos.addAll(subNode.lastpos);
                 break;
             case "?":
-                //TODO
+                node.nullable = true;
+                node.firstpos.addAll(subNode.firstpos);
+                node.lastpos.addAll(subNode.lastpos);
                 break;
             case "+":
-                //TODO
+                node.nullable = true;
+                node.firstpos.addAll(subNode.firstpos);
+                node.lastpos.addAll(subNode.lastpos);
                 break;
             default:
                 System.out.println("Sth unexpected Happened: " + node.getClass().toGenericString() + " " + node.operator);
