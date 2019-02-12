@@ -1,3 +1,7 @@
+package de.dhbw.inf17a.regextodea.treenodes;
+
+import de.dhbw.inf17a.regextodea.Visitable;
+
 import java.util.HashSet;
 import java.util.Set;
 

@@ -1,3 +1,9 @@
+package de.dhbw.inf17a.regextodea;
+
+import de.dhbw.inf17a.regextodea.parser.TopDownParser;
+import de.dhbw.inf17a.regextodea.visitors.FirstVisitor;
+import de.dhbw.inf17a.regextodea.visitors.SecondVisitor;
+
 import java.util.Scanner;
 
 public class Application

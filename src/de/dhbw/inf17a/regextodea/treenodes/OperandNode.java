@@ -1,6 +1,12 @@
+package de.dhbw.inf17a.regextodea.treenodes;
+
+import de.dhbw.inf17a.regextodea.Visitable;
+import de.dhbw.inf17a.regextodea.Visitor;
+
 import java.util.Objects;
 
-public class OperandNode extends SyntaxNode implements Visitable{
+public class OperandNode extends SyntaxNode implements Visitable
+{
     public int position;
     public String symbol;
     public OperandNode(String symbol)

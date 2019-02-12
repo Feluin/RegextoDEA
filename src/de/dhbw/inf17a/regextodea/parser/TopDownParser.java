@@ -1,4 +1,9 @@
+package de.dhbw.inf17a.regextodea.parser;
 
+import de.dhbw.inf17a.regextodea.Visitable;
+import de.dhbw.inf17a.regextodea.treenodes.BinOpNode;
+import de.dhbw.inf17a.regextodea.treenodes.OperandNode;
+import de.dhbw.inf17a.regextodea.treenodes.UnaryOpNode;
 
 import java.util.Arrays;
 import java.util.LinkedList;

@@ -1,5 +1,10 @@
 import static org.junit.jupiter.api.Assertions.*;
 
+import de.dhbw.inf17a.regextodea.treenodes.BinOpNode;
+import de.dhbw.inf17a.regextodea.DepthFirstIterator;
+import de.dhbw.inf17a.regextodea.visitors.FirstVisitor;
+import de.dhbw.inf17a.regextodea.treenodes.OperandNode;
+import de.dhbw.inf17a.regextodea.treenodes.UnaryOpNode;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
@@ -69,18 +74,6 @@ class FirstVisitorTest
         //start
         DepthFirstIterator.traverse(rootNode, new FirstVisitor());
     }
-
-    void positionTest()
-    {
-        //Für Raphael //TODO
-        assertEquals(1, k1.position);
-        assertEquals(2, k2.position);
-        assertEquals(3, k5.position);
-        assertEquals(4, k7.position);
-        assertEquals(5, k9.position);
-        assertEquals(6, k11.position);
-    }
-
     @Test
     void nullableTest()
     {

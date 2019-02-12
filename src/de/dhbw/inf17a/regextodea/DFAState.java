@@ -1,3 +1,5 @@
+package de.dhbw.inf17a.regextodea;
+
 import java.util.Set;
 
 class DFAState implements Comparable<DFAState> {

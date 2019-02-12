@@ -1,3 +1,8 @@
+package de.dhbw.inf17a.regextodea.treenodes;
+
+import de.dhbw.inf17a.regextodea.Visitable;
+import de.dhbw.inf17a.regextodea.Visitor;
+
 import java.util.Objects;
 
 public class BinOpNode extends SyntaxNode implements Visitable

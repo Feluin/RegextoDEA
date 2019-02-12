@@ -1,9 +1,13 @@
+import de.dhbw.inf17a.regextodea.treenodes.BinOpNode;
+import de.dhbw.inf17a.regextodea.DepthFirstIterator;
+import de.dhbw.inf17a.regextodea.treenodes.OperandNode;
+import de.dhbw.inf17a.regextodea.visitors.SecondVisitor;
+import de.dhbw.inf17a.regextodea.treenodes.UnaryOpNode;
+import de.dhbw.inf17a.regextodea.Visitor;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashSet;
-import java.util.Set;
 
-import static java.util.Arrays.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class SecondVisitorTest {

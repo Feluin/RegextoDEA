@@ -1,3 +1,7 @@
+import de.dhbw.inf17a.regextodea.treenodes.BinOpNode;
+import de.dhbw.inf17a.regextodea.treenodes.OperandNode;
+import de.dhbw.inf17a.regextodea.parser.TopDownParser;
+import de.dhbw.inf17a.regextodea.Visitable;
 import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;

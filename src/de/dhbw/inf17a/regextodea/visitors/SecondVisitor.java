@@ -1,8 +1,17 @@
+package de.dhbw.inf17a.regextodea.visitors;
+
+import de.dhbw.inf17a.regextodea.treenodes.BinOpNode;
+import de.dhbw.inf17a.regextodea.treenodes.OperandNode;
+import de.dhbw.inf17a.regextodea.treenodes.SyntaxNode;
+import de.dhbw.inf17a.regextodea.treenodes.UnaryOpNode;
+import de.dhbw.inf17a.regextodea.Visitor;
+
 import java.util.SortedMap;
 import java.util.TreeMap;
 
 
-public class SecondVisitor implements Visitor {
+public class SecondVisitor implements Visitor
+{
 
     private SortedMap<Integer, FollowposTableEntry> followposTableEntries = new TreeMap<>();
 

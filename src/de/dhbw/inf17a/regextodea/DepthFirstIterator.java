@@ -1,4 +1,10 @@
-class DepthFirstIterator
+package de.dhbw.inf17a.regextodea;
+
+import de.dhbw.inf17a.regextodea.treenodes.BinOpNode;
+import de.dhbw.inf17a.regextodea.treenodes.OperandNode;
+import de.dhbw.inf17a.regextodea.treenodes.UnaryOpNode;
+
+public class DepthFirstIterator
 {
     public static void traverse(Visitable root, Visitor visitor)
     {
