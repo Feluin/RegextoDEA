@@ -5,6 +5,9 @@ import de.dhbw.inf17a.regextodea.treenodes.OperandNode;
 import de.dhbw.inf17a.regextodea.treenodes.SyntaxNode;
 import de.dhbw.inf17a.regextodea.treenodes.UnaryOpNode;
 import de.dhbw.inf17a.regextodea.Visitor;
+/**
+ * Matrikelnummer: 4481614
+ */
 
 public class FirstVisitor implements Visitor
 {
