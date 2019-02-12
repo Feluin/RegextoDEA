@@ -7,7 +7,7 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class TDP
+public class TopDownParser
 {
     private static String concat = "°";
     private static String endSymbol = "#";
@@ -32,8 +32,8 @@ public class TDP
     private int curIndex = 0;
     private String regEx;
 
-    public TDP(String regEx,
-        boolean hasEndSymbol)
+    public TopDownParser(String regEx,
+                         boolean hasEndSymbol)
     {
         this.regEx = String.copyValueOf(regEx.toCharArray());
         if (!hasEndSymbol)
@@ -42,7 +42,7 @@ public class TDP
         }
     }
 
-    public TDP(String regEx)
+    public TopDownParser(String regEx)
     {
         this(regEx, regEx.endsWith("#"));
     }

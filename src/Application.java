@@ -10,7 +10,7 @@ public class Application
         System.out.print("Eingabe: ");
         String regEx = scanner.next();
 
-        TDP parser = new TDP(regEx);
+        TopDownParser parser = new TopDownParser(regEx);
 
         visitable = parser.getTreeFromRegex();
 
