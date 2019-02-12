@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class OperandNode extends SyntaxNode implements Visitable{
     public int position;
     public String symbol;
@@ -13,4 +15,13 @@ public class OperandNode extends SyntaxNode implements Visitable{
         visitor.visit(this);
     }
 
+    @Override
+    public boolean equals(Visitable obj) {
+        if(obj == null || !obj.getClass().equals(this.getClass())) {
+            return false;
+        } else {
+            OperandNode otherObj = (OperandNode) obj;
+            return Objects.equals(this.symbol, otherObj.symbol);
+        }
+    }
 }
