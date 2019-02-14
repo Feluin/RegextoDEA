@@ -1,3 +1,7 @@
+/**
+ * @author: Raphael Lawo
+ */
+
 package de.dhbw.inf17a.regextodea.parser;
 
 import de.dhbw.inf17a.regextodea.Visitable;
@@ -15,7 +19,7 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class TopDownParser
+public class TopDownParser implements ITopDownParser
 {
     private static String concat = "°";
     private static String endSymbol = "#";
@@ -60,7 +64,7 @@ public class TopDownParser
         int regexLength = regEx.length();
         if (regexLength < 1 || this.regEx.lastIndexOf(endSymbol) != regexLength - 1)
         {
-            throw getIllArgException("Expression must end with " + getNameAndValue("endSymbol", endSymbol) + "(even is emtpy)");
+            throw getIllArgException("Expression must end with " + getNameAndValue("endSymbol", endSymbol));
         } else if (regEx.equals(endSymbol))
         {
             return new OperandNode(endSymbol);
