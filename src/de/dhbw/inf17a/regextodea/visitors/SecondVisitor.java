@@ -9,6 +9,10 @@ import de.dhbw.inf17a.regextodea.Visitor;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
+/**
+ * @author: Julian Weber
+ */
+
 
 public class SecondVisitor implements Visitor
 {

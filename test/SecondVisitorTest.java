@@ -11,6 +11,9 @@ import java.util.HashSet;
 import static org.junit.jupiter.api.Assertions.*;
 
 class SecondVisitorTest {
+    /**
+     * @author: Julian Weber
+     */
 
 
     @Test

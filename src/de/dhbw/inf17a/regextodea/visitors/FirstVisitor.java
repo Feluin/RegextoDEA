@@ -6,8 +6,9 @@ import de.dhbw.inf17a.regextodea.treenodes.SyntaxNode;
 import de.dhbw.inf17a.regextodea.treenodes.UnaryOpNode;
 import de.dhbw.inf17a.regextodea.Visitor;
 /**
- * Matrikelnummer: 4481614
+ * @author: Pascal Röcker
  */
+
 
 public class FirstVisitor implements Visitor
 {
