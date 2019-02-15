@@ -11,7 +11,7 @@ public class Application
 
     public static void main(String[] args)
     {
-        Visitable visitable = null;
+        Visitable visitable;
         Scanner scanner = new Scanner(System.in);
         System.out.print("Eingabe: ");
         String regEx = scanner.next();

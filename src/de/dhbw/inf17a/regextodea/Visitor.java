@@ -6,7 +6,7 @@ import de.dhbw.inf17a.regextodea.treenodes.UnaryOpNode;
 
 public interface Visitor
 {
-    public void visit(OperandNode node);
-    public void visit(BinOpNode node);
-    public void visit(UnaryOpNode node);
+    void visit(OperandNode node);
+    void visit(BinOpNode node);
+    void visit(UnaryOpNode node);
 }

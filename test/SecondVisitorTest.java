@@ -112,7 +112,7 @@ class SecondVisitorTest {
         DepthFirstIterator iterator = new DepthFirstIterator();
         Visitor visitor = new SecondVisitor();
 
-        iterator.traverse(root, visitor);
+        DepthFirstIterator.traverse(root, visitor);
 
 
         HashSet<Integer> mySet = new HashSet<>();

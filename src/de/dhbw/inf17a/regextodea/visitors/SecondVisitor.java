@@ -34,7 +34,7 @@ public class SecondVisitor implements Visitor
     @Override
     public void visit(BinOpNode node) {
         switch (node.operator) {
-            case "°":
+            case "∘":
                 for (int i : ((SyntaxNode)node.left).lastpos) {
                     for (int j : ((SyntaxNode) node.right).firstpos) {
                         followposTableEntries.get(i).followpos.add(j);
